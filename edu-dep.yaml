@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: demo-eduction
+    namespace: eduction
+    labels:
+      app: demo-eduction
+spec:
+ replicas: 3
+ selector:
+     matchLabels:
+      app: demo-eduction
+ template:
+     metadata:
+        labels:
+            app: demo-eduction
+     spec:
+       containers:
+         - name: demo-eduction
+           image: venkat5658/myproject:latest
+           imagePullPolicy: "Always"
+           ports:
+           - containerPort: 80
